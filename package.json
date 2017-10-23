@@ -1,0 +1,15 @@
+{
+    "name": "template-engine",
+    "version": "1.0.0",
+    "description": "Abe Template Engine",
+    "main": "index.js",
+    "dependencies": {
+        "handlebars": "4.0.11",
+        "lodash": "4.17.4",
+        "moment": "2.19.1",
+        "moment-range": "3.0.3",
+        "moment-timezone": "0.5.13",
+        "pino": "4.8.0",
+        "pluralize": "7.0.0"
+    }
+}
