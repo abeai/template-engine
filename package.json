@@ -1,6 +1,6 @@
 {
-    "name": "template-engine",
-    "version": "1.0.0",
+    "name": "@abeai/template-engine",
+    "version": "0.1.0",
     "description": "Abe Template Engine",
     "main": "index.js",
     "dependencies": {
@@ -9,7 +9,7 @@
         "moment": "2.19.1",
         "moment-range": "3.0.3",
         "moment-timezone": "0.5.13",
-        "pino": "4.8.0",
+        "pino": "4.8.1",
         "pluralize": "7.0.0"
     }
 }
