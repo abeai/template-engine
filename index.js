@@ -36,21 +36,9 @@ function registerHelpers(helperName, helperFunction) {
     HANDLEBARS_OPTIONS.knownHelpers[helperName] = true;
 }
 
-function executeTemplate(template, parameters, config) {
+function executeTemplate(template, templateParameters, extendedParameters) {
 
-    const mergedParameters = _.extend({
-        connectAccountUrl: `${config.whiteLabel.url}/connect`,
-        helpEmail: config.whiteLabel.helpEmail,
-        faqUrl: config.whiteLabel.faqUrl,
-        homeUrl: config.whiteLabel.url,
-        securityEmail: config.whiteLabel.securityEmail,
-        user: {
-            firstName: config.user.firstName,
-            lastName: config.user.lastName,
-            locale: config.user.locale,
-            timezone: config.user.timezone,
-        },
-    }, parameters || {});
+    const mergedParameters = _.extend(extendedParameters || {}, templateParameters || {});
 
     pino.debug({template: template, parameters: mergedParameters}, 'executeTemplate');
 
