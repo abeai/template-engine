@@ -2,7 +2,9 @@
 
 var _ = require('lodash');
 var handlebars = require('handlebars');
-var pino = require('logger').pino;
+var pino = require('pino')();
+
+pino.level = process.env.TEMPLATE_ENGINE_LOG_LEVEL || 'warn';
 
 require('./lib/helpers')(handlebars);
 
@@ -38,15 +40,21 @@ function registerHelpers(helperName, helperFunction) {
 
 function executeTemplate(template, templateParameters, extendedParameters) {
 
-    const mergedParameters = _.extend(extendedParameters || {}, templateParameters || {});
+    return new Promise(function(resolve, reject) {
 
-    pino.debug({template: template, parameters: mergedParameters}, 'executeTemplate');
+        const mergedParameters = _.extend(extendedParameters || {}, templateParameters || {});
 
-    try {
-        return handlebars.compile(template, HANDLEBARS_OPTIONS)(mergedParameters);
-    } catch (error) {
-        pino.error(error, 'handlebarsCompileError');
-        return error.toString();
-    }
+        pino.debug({template: template, parameters: mergedParameters}, 'executeTemplate');
+
+        try {
+            let compiledTemplate = handlebars.compile(template, HANDLEBARS_OPTIONS)(mergedParameters);
+
+            resolve(compiledTemplate);
+        } catch (error) {
+            pino.error(error, 'TEMPLATE_ENGINE_HANDLEBARS_COMPILE_ERROR');
+            reject(error);
+        }
+
+    });
 
 }
