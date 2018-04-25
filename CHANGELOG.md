@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 0.2.5 - 2018-04-24
+
+-   `money` helper
+    -   change undefined return to fallback or NA
+
+
 ## 0.2.5 - 2018-04-18
 
 -   `money` helper
