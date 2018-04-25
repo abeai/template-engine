@@ -1,6 +1,6 @@
 {
     "name": "@abeai/template-engine",
-    "version": "0.2.5",
+    "version": "0.2.6",
     "description": "Abe Template Engine",
     "main": "index.js",
     "repository": {
