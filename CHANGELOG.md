@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+
+## 0.2.7 - 2018-04-24
+
+-   `dateRangeinWorkds` helper
+    - Fix identification of date range matching exactly the last week because of starting the week on Sunday instead of Monday.
+
+
 ## 0.2.6 - 2018-04-24
 
 -   `money` helper
