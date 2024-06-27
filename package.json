@@ -16,7 +16,7 @@
         "lodash": "4.17.5",
         "moment": "2.21.0",
         "moment-range": "3.1.1",
-        "moment-timezone": "0.5.14",
+        "moment-timezone": "0.5.45",
         "pino": "4.13.0",
         "pluralize": "7.0.0"
     }
